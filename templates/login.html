@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Login Page</title>
+</head>
+<body>
+<!-- the form POSTs the data to the '/form' app route-->
+<form method="POST" action="/form">
+    {{ form.csrf_token }}
+    <!--this gets the text supplied in forms.py for each field -->
+    {{ form.username.label }}
+    <!--this is the login box rendered by flask-wtf
+    can be accessed by it's name 'username' like so session['username']-->
+    {{ form.username }}
+    <br>
+    <!--this gets the text supplied in forms.py for each field-->
+    {{ form.password.label }}
+    <!--this is the password box rendered by flask-wtf
+    can be accessed by it's name 'password' like so session['password']-->
+    {{ form.password }}
+    <br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

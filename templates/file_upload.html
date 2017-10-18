@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>File Storage</title>
+</head>
+<body>
+<form method="POST"  enctype="multipart/form-data" action = '/file_upload' >
+    {{ form.csrf_token }}
+    {{form.file.label}}
+    {{form.file}}
+    <input type = submit value="Upload ">
+</form>
+
+<form method = 'POST' action = '/file_downloader'>
+    <input type = submit value = 'Display files' >
+</form>
+
+<div>
+    <ul>
+    {%for n  in files_list%}
+    <li>
+
+        <form method = post name = {{n}} action = '/file_downloader/{{n}}'>
+    <a>{{n}}</a> <input type=submit value=Download><br>
+            </form>
+    </li>
+    {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
